@@ -23,3 +23,4 @@ C:\TEAMPROJECT\GIT\Asp.Net-Web-Api-Core-Integration-testing-using-InMemory-Entit
 C:\TEAMPROJECT\GIT\Asp.Net-Web-Api-Core-Integration-testing-using-InMemory-EntityFrameworkCore-Sqlite-and-Xunit2\TokenAuthWebApiCore.Server\obj\Debug\netcoreapp1.1\TokenAuthWebApiCore.Server.AssemblyInfo.cs
 C:\TEAMPROJECT\GIT\Asp.Net-Web-Api-Core-Integration-testing-using-InMemory-EntityFrameworkCore-Sqlite-and-Xunit2\TokenAuthWebApiCore.Server\obj\Debug\netcoreapp1.1\TokenAuthWebApiCore.Server.dll
 C:\TEAMPROJECT\GIT\Asp.Net-Web-Api-Core-Integration-testing-using-InMemory-EntityFrameworkCore-Sqlite-and-Xunit2\TokenAuthWebApiCore.Server\obj\Debug\netcoreapp1.1\TokenAuthWebApiCore.Server.pdb
+C:\TEAMPROJECT\GIT\Asp.Net-Web-Api-Core-Integration-testing-using-InMemory-EntityFrameworkCore-Sqlite-and-Xunit2\TokenAuthWebApiCore.Server\obj\Debug\netcoreapp1.1\TokenAuthWebApiCore.Server.csprojResolveAssemblyReference.cache

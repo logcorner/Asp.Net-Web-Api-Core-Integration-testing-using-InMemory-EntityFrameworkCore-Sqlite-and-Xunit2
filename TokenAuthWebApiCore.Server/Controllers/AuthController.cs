@@ -1,31 +1,30 @@
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using TokenAuthWebApiCore.Server.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using System.Net;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 using TokenAuthWebApiCore.Server.Filters;
+using TokenAuthWebApiCore.Server.Models;
 
 namespace TokenAuthWebApiCore.Server.Controllers.Web
 {
 	[Route("api/auth")]
 	public class AuthController : Controller
-    {
+	{
 		private readonly UserManager<MyUser> _userManager;
 		private readonly SignInManager<MyUser> _signInManager;
 		private readonly RoleManager<MyRole> _roleManager;
 		private IPasswordHasher<MyUser> _passwordHasher;
 		private IConfigurationRoot _configurationRoot;
 		private ILogger<AuthController> _logger;
-
 
 		public AuthController(UserManager<MyUser> userManager, SignInManager<MyUser> signInManager, RoleManager<MyRole> roleManager
 			, IPasswordHasher<MyUser> passwordHasher, IConfigurationRoot configurationRoot, ILogger<AuthController> logger)
@@ -37,6 +36,7 @@ namespace TokenAuthWebApiCore.Server.Controllers.Web
 			_passwordHasher = passwordHasher;
 			_configurationRoot = configurationRoot;
 		}
+
 		[AllowAnonymous]
 		[HttpPost]
 		[Route("register")]
@@ -72,7 +72,7 @@ namespace TokenAuthWebApiCore.Server.Controllers.Web
 			try
 			{
 				var user = await _userManager.FindByNameAsync(model.Email);
-				if(user == null)
+				if (user == null)
 				{
 					return Unauthorized();
 				}
@@ -97,7 +97,7 @@ namespace TokenAuthWebApiCore.Server.Controllers.Web
 						expires: DateTime.UtcNow.AddMinutes(60),
 						signingCredentials: signingCredentials
 						);
-					return Ok(new 
+					return Ok(new
 					{
 						token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
 						expiration = jwtSecurityToken.ValidTo

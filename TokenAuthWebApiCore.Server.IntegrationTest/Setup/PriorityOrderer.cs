@@ -31,23 +31,23 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest.Setup
 	public class TestPriorityAttribute : Attribute
 	{
 		public int Priority { get; private set; }
+
 		public TestPriorityAttribute(int priority)
 		{
 			Priority = priority;
 		}
 	}
 
-	public class DuplicateKeyComparer<TKey>	: IComparer<TKey> where TKey : IComparable
+	public class DuplicateKeyComparer<TKey> : IComparer<TKey> where TKey : IComparable
 	{
 		public int Compare(TKey x, TKey y)
 		{
 			int result = x.CompareTo(y);
 
 			if (result == 0)
-				return 1;   
+				return 1;
 			else
 				return result;
 		}
 	}
 }
-

@@ -11,7 +11,7 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 {
 	[TestCaseOrderer("TokenAuthWebApiCore.Server.IntegrationTest.Setup.PriorityOrderer",
 		"TokenAuthWebApiCore.Server.IntegrationTest")]
-	public class ValuesController_AuthorizedTest  : IClassFixture<TestFixture<TestStartupLocalDb>>
+	public class ValuesController_AuthorizedTest : IClassFixture<TestFixture<TestStartupLocalDb>>
 	{
 		public ValuesController_AuthorizedTest(TestFixture<TestStartupLocalDb> fixture)
 		{
@@ -40,17 +40,17 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 		}
 
 		[Theory, TestPriority(2)]
-		[InlineData("POST","myRequestBody")]
+		[InlineData("POST", "myRequestBody")]
 		[InlineData("GET", "myRequestBody")]
 		[InlineData(new object[] { "PUT", "myRequestBody", 1 })]
 		[InlineData(new object[] { "DELETE", "myRequestBody", 1 })]
-		public async Task WhenAuthenticatedUser_MakeRequestRequest_Return_Ok(string method,string obj =null,
-			int? id =null)
+		public async Task WhenAuthenticatedUser_MakeRequestRequest_Return_Ok(string method, string obj = null,
+			int? id = null)
 		{
 			// Arrange
 			var jwToken = await getJwToken();
-			string token =$"bearer {jwToken.token}";
-						
+			string token = $"bearer {jwToken.token}";
+
 			string stringData = JsonConvert.SerializeObject(obj);
 			var contentData = new StringContent(stringData, Encoding.UTF8, "application/json");
 
@@ -82,4 +82,3 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 		}
 	}
 }
-

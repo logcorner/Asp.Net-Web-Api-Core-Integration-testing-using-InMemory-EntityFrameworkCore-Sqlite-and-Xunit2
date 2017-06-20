@@ -1,12 +1,12 @@
 using Newtonsoft.Json;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using TokenAuthWebApiCore.Server.IntegrationTest.Setup;
-using Xunit;
-using System;
 using TokenAuthWebApiCore.Server.Models;
+using Xunit;
 
 namespace TokenAuthWebApiCore.Server.IntegrationTest
 {
@@ -15,11 +15,12 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 	public class AuthController_TokenTest : IClassFixture<TestFixture<TestStartupLocalDb>>
 	{
 		public HttpClient Client { get; }
+
 		public AuthController_TokenTest(TestFixture<TestStartupLocalDb> fixture)
 		{
 			Client = fixture.httpClient;
 		}
-		
+
 		[Fact(DisplayName = "WhenNoRegisteredUser_SignUpForToken_WithValidModelState_Return_OK"), TestPriority(1)]
 		public async Task WhenNoRegisteredUser_SignUpForToken_WithValidModelState_Return_OK()
 		{
@@ -54,9 +55,9 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 			var response = await Client.PostAsync($"/api/auth/token", contentData);
 			response.EnsureSuccessStatusCode();
 			// Assert
-			
+
 			Assert.Equal(HttpStatusCode.OK, response.StatusCode);
-			
+
 			var jwToken = JsonConvert.DeserializeObject<JwToken>(
 				await response.Content.ReadAsStringAsync());
 			Assert.True(jwToken.expiration > DateTime.UtcNow);
@@ -64,4 +65,3 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 		}
 	}
 }
-

@@ -2,8 +2,8 @@
 
 namespace TokenAuthWebApiCore.Server.Models
 {
-    public class LoginViewModel
-    {
+	public class LoginViewModel
+	{
 		[Required]
 		[EmailAddress]
 		[Display(Name = "Email")]
@@ -14,6 +14,5 @@ namespace TokenAuthWebApiCore.Server.Models
 		[DataType(DataType.Password)]
 		[Display(Name = "Password")]
 		public string Password { get; set; }
-
 	}
 }

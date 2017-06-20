@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,6 +15,7 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest.Setup
 		public TestStartupLocalDb(IHostingEnvironment env) : base(env)
 		{
 		}
+
 		public override void SetUpDataBase(IServiceCollection services)
 		{
 			var connectionStringBuilder = new SqlConnectionStringBuilder
@@ -33,6 +32,7 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest.Setup
 				options => options.UseSqlServer(connection, sqlOptions => sqlOptions.MigrationsAssembly("TokenAuthWebApiCore.Server"))
 			  );
 		}
+
 		public override void EnsureDatabaseCreated(SecurityContext dbContext)
 		{
 			DestroyDatabase();
@@ -60,7 +60,7 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest.Setup
 			var connectionString = connectionStringBuilder.ToString();
 
 			var optionsBuilder = new DbContextOptionsBuilder<SecurityContext>();
-			optionsBuilder.UseSqlServer (connectionString);
+			optionsBuilder.UseSqlServer(connectionString);
 
 			using (var context = new SecurityContext(optionsBuilder.Options))
 			{
@@ -138,6 +138,5 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest.Setup
 			Path.GetDirectoryName(
 				typeof(TestStartupLocalDb).GetTypeInfo().Assembly.Location),
 			"VS2017Db_TokenAuthWebApiCore.Server.Local.mdf");
-
-			}
+	}
 }

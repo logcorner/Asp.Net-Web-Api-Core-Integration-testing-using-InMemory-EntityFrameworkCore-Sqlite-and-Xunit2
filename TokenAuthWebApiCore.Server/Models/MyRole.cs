@@ -3,7 +3,7 @@
 namespace TokenAuthWebApiCore.Server.Models
 {
 	public class MyRole : IdentityRole
-    {
-        public string Description { get; set; }
-    }
+	{
+		public string Description { get; set; }
+	}
 }

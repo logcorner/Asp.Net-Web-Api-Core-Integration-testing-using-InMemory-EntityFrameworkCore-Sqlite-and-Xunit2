@@ -29,21 +29,22 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 			string passWord, string ConfirmPassword)
 		{
 			// Arrange
-			
+
 			var obj = new RegisterViewModel
 			{
-				Email= email,
-				Password =passWord,
+				Email = email,
+				Password = passWord,
 				ConfirmPassword = ConfirmPassword
 			};
 			string stringData = JsonConvert.SerializeObject(obj);
-			var contentData = new StringContent(stringData, Encoding.UTF8,"application/json");
+			var contentData = new StringContent(stringData, Encoding.UTF8, "application/json");
 			// Act
 			var response = await Client.PostAsync($"/api/auth/register", contentData);
 
 			// Assert
 			Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
 		}
+
 		[Fact]
 		public async Task WhenNoRegisteredUser_SignUp_WithValidModelState_Return_OK()
 		{
@@ -64,4 +65,3 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 		}
 	}
 }
-
