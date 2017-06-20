@@ -9,11 +9,11 @@ using Xunit;
 
 namespace TokenAuthWebApiCore.Server.IntegrationTest
 {
-	public class AuthController_RegisterUserTest : IClassFixture<TestFixture<TestStartup>>
+	public class AuthController_RegisterUserTest : IClassFixture<TestFixture<TestStartupLocalDb>>
 	{
 		public HttpClient Client { get; }
 
-		public AuthController_RegisterUserTest(TestFixture<TestStartup> fixture)
+		public AuthController_RegisterUserTest(TestFixture<TestStartupLocalDb> fixture)
 		{
 			Client = fixture.httpClient;
 		}

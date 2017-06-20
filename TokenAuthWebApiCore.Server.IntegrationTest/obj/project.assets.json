@@ -11757,10 +11757,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\TEAMPROJECT\\GIT\\TokenAuthWebApiCore\\VS2017\\TokenAuthWebApiCore.Server.IntegrationTest\\TokenAuthWebApiCore.Server.IntegrationTest.csproj",
+      "projectUniqueName": "C:\\TEAMPROJECT\\GIT\\Asp.Net-Web-Api-Core-Integration-testing-using-InMemory-EntityFrameworkCore-Sqlite-and-Xunit2\\TokenAuthWebApiCore.Server.IntegrationTest\\TokenAuthWebApiCore.Server.IntegrationTest.csproj",
       "projectName": "TokenAuthWebApiCore.Server.IntegrationTest",
-      "projectPath": "C:\\TEAMPROJECT\\GIT\\TokenAuthWebApiCore\\VS2017\\TokenAuthWebApiCore.Server.IntegrationTest\\TokenAuthWebApiCore.Server.IntegrationTest.csproj",
-      "outputPath": "C:\\TEAMPROJECT\\GIT\\TokenAuthWebApiCore\\VS2017\\TokenAuthWebApiCore.Server.IntegrationTest\\obj\\",
+      "projectPath": "C:\\TEAMPROJECT\\GIT\\Asp.Net-Web-Api-Core-Integration-testing-using-InMemory-EntityFrameworkCore-Sqlite-and-Xunit2\\TokenAuthWebApiCore.Server.IntegrationTest\\TokenAuthWebApiCore.Server.IntegrationTest.csproj",
+      "outputPath": "C:\\TEAMPROJECT\\GIT\\Asp.Net-Web-Api-Core-Integration-testing-using-InMemory-EntityFrameworkCore-Sqlite-and-Xunit2\\TokenAuthWebApiCore.Server.IntegrationTest\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -11768,8 +11768,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\TEAMPROJECT\\GIT\\TokenAuthWebApiCore\\VS2017\\TokenAuthWebApiCore.Server\\TokenAuthWebApiCore.Server.csproj": {
-              "projectPath": "C:\\TEAMPROJECT\\GIT\\TokenAuthWebApiCore\\VS2017\\TokenAuthWebApiCore.Server\\TokenAuthWebApiCore.Server.csproj"
+            "C:\\TEAMPROJECT\\GIT\\Asp.Net-Web-Api-Core-Integration-testing-using-InMemory-EntityFrameworkCore-Sqlite-and-Xunit2\\TokenAuthWebApiCore.Server\\TokenAuthWebApiCore.Server.csproj": {
+              "projectPath": "C:\\TEAMPROJECT\\GIT\\Asp.Net-Web-Api-Core-Integration-testing-using-InMemory-EntityFrameworkCore-Sqlite-and-Xunit2\\TokenAuthWebApiCore.Server\\TokenAuthWebApiCore.Server.csproj"
             }
           }
         }

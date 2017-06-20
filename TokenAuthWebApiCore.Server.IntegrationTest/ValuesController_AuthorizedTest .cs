@@ -11,9 +11,9 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 {
 	[TestCaseOrderer("TokenAuthWebApiCore.Server.IntegrationTest.Setup.PriorityOrderer",
 		"TokenAuthWebApiCore.Server.IntegrationTest")]
-	public class ValuesController_AuthorizedTest  : IClassFixture<TestFixture<TestStartup>>
+	public class ValuesController_AuthorizedTest  : IClassFixture<TestFixture<TestStartupLocalDb>>
 	{
-		public ValuesController_AuthorizedTest(TestFixture<TestStartup> fixture)
+		public ValuesController_AuthorizedTest(TestFixture<TestStartupLocalDb> fixture)
 		{
 			Client = fixture.httpClient;
 		}

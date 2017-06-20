@@ -34,8 +34,6 @@ namespace TokenAuthWebApiCore.Server
 			services.AddSingleton(Configuration);
 			// Add framework services.
 			services.AddMvc();
-			//services.AddDbContext<SecurityContext>(options =>
-			//		options.UseSqlServer(Configuration.GetConnectionString("SecurityConnection"), sqlOptions => sqlOptions.MigrationsAssembly("TokenAuthWebApiCore.Server")));
 			SetUpDataBase(services);
 
 
@@ -59,9 +57,8 @@ namespace TokenAuthWebApiCore.Server
 
 		public virtual void SetUpDataBase(IServiceCollection services)
 		{
-			// Add framework services.
-				services.AddDbContext<SecurityContext>(options =>
-					options.UseSqlServer(Configuration.GetConnectionString("SecurityConnection"), sqlOptions => sqlOptions.MigrationsAssembly("TokenAuthWebApiCore.Server")));
+			 services.AddDbContext<SecurityContext>(options =>
+			 options.UseSqlServer(Configuration.GetConnectionString("SecurityConnection"), sqlOptions => sqlOptions.MigrationsAssembly("TokenAuthWebApiCore.Server")));
 		}
 		public virtual void EnsureDatabaseCreated(SecurityContext dbContext)
 		{
