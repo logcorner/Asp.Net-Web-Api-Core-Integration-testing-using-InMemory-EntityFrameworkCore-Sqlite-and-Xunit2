@@ -14,7 +14,9 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest.Setup
 		public override void SetUpDataBase(IServiceCollection services)
 		{
 			var connectionStringBuilder = new SqliteConnectionStringBuilder
-			{ DataSource = ":memory:" };
+			{
+				DataSource = ":memory:"
+			};
 			var connectionString = connectionStringBuilder.ToString();
 			var connection = new SqliteConnection(connectionString);
 			services

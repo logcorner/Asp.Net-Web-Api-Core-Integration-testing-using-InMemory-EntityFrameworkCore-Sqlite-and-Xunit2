@@ -11,14 +11,14 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 {
 	[TestCaseOrderer("TokenAuthWebApiCore.Server.IntegrationTest.Setup.PriorityOrderer",
 		"TokenAuthWebApiCore.Server.IntegrationTest")]
-	public class ValuesController_AuthorizedTest : IClassFixture<TestFixture<TestStartupLocalDb>>
+	public class ValuesControllerAuthorizedTest : IClassFixture<TestFixture<TestStartupSqlite>>
 	{
-		public ValuesController_AuthorizedTest(TestFixture<TestStartupLocalDb> fixture)
+		public ValuesControllerAuthorizedTest(TestFixture<TestStartupSqlite> fixture)
 		{
-			Client = fixture.httpClient;
+			Client = fixture.HttpClient;
 		}
 
-		public HttpClient Client { get; }
+		private HttpClient Client { get; }
 
 		[Fact, TestPriority(1)]
 		public async Task WhenNoRegisteredUser_SignUpForToken_WithValidModelState_Return_OK()
@@ -48,8 +48,8 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 			int? id = null)
 		{
 			// Arrange
-			var jwToken = await getJwToken();
-			string token = $"bearer {jwToken.token}";
+			var jwToken = await GetJwToken();
+			string token = $"bearer {jwToken.Token}";
 
 			string stringData = JsonConvert.SerializeObject(obj);
 			var contentData = new StringContent(stringData, Encoding.UTF8, "application/json");
@@ -64,7 +64,7 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 			Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 		}
 
-		private async Task<JwToken> getJwToken()
+		private async Task<JwToken> GetJwToken()
 		{
 			var loginViewModel = new LoginViewModel
 			{

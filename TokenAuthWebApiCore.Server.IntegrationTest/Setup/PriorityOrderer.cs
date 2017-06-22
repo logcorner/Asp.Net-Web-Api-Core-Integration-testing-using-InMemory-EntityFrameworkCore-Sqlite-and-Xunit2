@@ -30,7 +30,7 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest.Setup
 	[AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
 	public class TestPriorityAttribute : Attribute
 	{
-		public int Priority { get; private set; }
+		private int Priority { get; }
 
 		public TestPriorityAttribute(int priority)
 		{

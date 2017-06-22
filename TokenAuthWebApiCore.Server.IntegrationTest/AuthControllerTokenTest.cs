@@ -12,13 +12,13 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 {
 	[TestCaseOrderer("TokenAuthWebApiCore.Server.IntegrationTest.Setup.PriorityOrderer",
 		"TokenAuthWebApiCore.Server.IntegrationTest")]
-	public class AuthController_TokenTest : IClassFixture<TestFixture<TestStartupLocalDb>>
+	public class AuthControllerTokenTest : IClassFixture<TestFixture<TestStartupSqlite>>
 	{
-		public HttpClient Client { get; }
+		private HttpClient Client { get; }
 
-		public AuthController_TokenTest(TestFixture<TestStartupLocalDb> fixture)
+		public AuthControllerTokenTest(TestFixture<TestStartupSqlite> fixture)
 		{
-			Client = fixture.httpClient;
+			Client = fixture.HttpClient;
 		}
 
 		[Fact(DisplayName = "WhenNoRegisteredUser_SignUpForToken_WithValidModelState_Return_OK"), TestPriority(1)]
@@ -60,8 +60,8 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 
 			var jwToken = JsonConvert.DeserializeObject<JwToken>(
 				await response.Content.ReadAsStringAsync());
-			Assert.True(jwToken.expiration > DateTime.UtcNow);
-			Assert.True(jwToken.token.Split('.').Length == 3);
+			Assert.True(jwToken.Expiration > DateTime.UtcNow);
+			Assert.True(jwToken.Token.Split('.').Length == 3);
 		}
 	}
 }

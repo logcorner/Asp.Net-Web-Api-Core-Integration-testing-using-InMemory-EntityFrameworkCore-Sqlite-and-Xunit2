@@ -4,7 +4,7 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest.Setup
 {
 	public class JwToken
 	{
-		public string token { get; set; }
-		public DateTime expiration { get; set; }
+		public string Token { get; set; }
+		public DateTime Expiration { get; set; }
 	}
 }

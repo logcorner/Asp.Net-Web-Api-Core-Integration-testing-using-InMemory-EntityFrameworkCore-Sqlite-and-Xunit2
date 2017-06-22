@@ -6,14 +6,14 @@ using Xunit;
 
 namespace TokenAuthWebApiCore.Server.IntegrationTest
 {
-	public class ValuesController_UnauthorizedTest : IClassFixture<TestFixture<TestStartupLocalDb>>
+	public class ValuesControllerUnauthorizedTest : IClassFixture<TestFixture<TestStartupSqlite>>
 	{
-		public ValuesController_UnauthorizedTest(TestFixture<TestStartupLocalDb> fixture)
+		public ValuesControllerUnauthorizedTest(TestFixture<TestStartupSqlite> fixture)
 		{
-			Client = fixture.httpClient;
+			Client = fixture.HttpClient;
 		}
 
-		public HttpClient Client { get; }
+		private HttpClient Client { get; }
 
 		[Theory]
 		[InlineData("POST")]

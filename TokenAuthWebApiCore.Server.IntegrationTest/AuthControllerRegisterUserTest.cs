@@ -9,13 +9,13 @@ using Xunit;
 
 namespace TokenAuthWebApiCore.Server.IntegrationTest
 {
-	public class AuthController_RegisterUserTest : IClassFixture<TestFixture<TestStartupLocalDb>>
+	public class AuthControllerRegisterUserTest : IClassFixture<TestFixture<TestStartupSqlite>>
 	{
-		public HttpClient Client { get; }
+		private HttpClient Client { get; }
 
-		public AuthController_RegisterUserTest(TestFixture<TestStartupLocalDb> fixture)
+		public AuthControllerRegisterUserTest(TestFixture<TestStartupSqlite> fixture)
 		{
-			Client = fixture.httpClient;
+			Client = fixture.HttpClient;
 		}
 
 		[Theory]
@@ -26,7 +26,7 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 		[InlineData("simpleuser@yopmail.com", "WebApiChggore1#", "WebApiCore1#")]
 		[InlineData("simpleuser", "WebApiCore1#", "WebApiCore1#")]
 		public async Task WhenNoRegisteredUser_SignUpWithModelError_ReturnBadRequest(string email,
-			string passWord, string ConfirmPassword)
+			string passWord, string confirmPassword)
 		{
 			// Arrange
 
@@ -34,7 +34,7 @@ namespace TokenAuthWebApiCore.Server.IntegrationTest
 			{
 				Email = email,
 				Password = passWord,
-				ConfirmPassword = ConfirmPassword
+				ConfirmPassword = confirmPassword
 			};
 			string stringData = JsonConvert.SerializeObject(obj);
 			var contentData = new StringContent(stringData, Encoding.UTF8, "application/json");
